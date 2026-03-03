@@ -11,7 +11,7 @@ export class Postagem{
     @Transform(({value}:TransformFnParams)=> value?.trim())
     @IsNotEmpty() // validador
     @Column({length:100,nullable:false})// Varchar(100) NOT NULL
-    título: string;
+    titulo: string;
     
     @Transform(({value}:TransformFnParams)=> value?.trim())
     @IsNotEmpty() // validador
