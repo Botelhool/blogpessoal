@@ -44,7 +44,9 @@ export class TemaService {
   }
 
   create(tema: Tema): Promise<Tema> {
+    
     return this.temaRepository.save(tema);
+    
   }
 
   async update(tema: Tema): Promise<Tema> {

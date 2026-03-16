@@ -67,11 +67,11 @@ export class PostagemService {
 
 
     async create(postagem: Postagem): Promise<Postagem> {
-
-        await this.temaService.findById(postagem.tema.id);
+        const {id,...novaPostagem  } = postagem
+        //await this.temaService.findById(postagem.tema.id);
 
         //INSERT INTO tb_postagens (titulo,texto) VALUES(?,?);
-        return await this.postagemRepository.save(postagem);
+        return await this.postagemRepository.save(novaPostagem);
     }
 
     async update(postagem: Postagem): Promise<Postagem> {
