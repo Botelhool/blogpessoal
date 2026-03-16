@@ -13,17 +13,18 @@ import { AppController } from './app.controller';
 
 @Module({
   imports: [
-    TypeOrmModule.forRoot({
-      type:'mysql',
-      host:'localhost',
-      port:3306,
-      username: 'root',
-      password:'root',
-      database:'db_blogpessoal',
-      entities:[Postagem,Tema,Usuario],
-      synchronize:true,
-      
-    }),
+   TypeOrmModule.forRoot({
+  type: 'postgres', // Neon usa PostgreSQL
+  url: process.env.DATABASE_URL, // A URL de conexão é fornecida pelo Neon
+  entities: [Postagem, Tema, Usuario],
+  synchronize: true, // Em produção, prefira usar migrations
+  ssl: true, // Ativa o SSL (obrigatório no Neon)
+  extra: {
+    ssl: {
+      rejectUnauthorized: false, // Necessário para aceitar o certificado do Neon no Render
+    },
+  },
+}),
     PostagemModule,
     TemaModule,
     AuthModule,
