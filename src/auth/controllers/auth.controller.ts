@@ -5,7 +5,7 @@ import { UsuarioLogin } from './../entities/usuariologin.entity';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @Controller("/usuarios")
-@ApiTags() 
+@ApiTags('/usuarios') 
 export class AuthController {
     constructor(private authService: AuthService) { }
 

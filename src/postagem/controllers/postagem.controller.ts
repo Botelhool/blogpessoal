@@ -6,7 +6,7 @@ import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 
 @UseGuards(JwtAuthGuard)
 @Controller("/postagens")
-@ApiTags('Postagens') 
+@ApiTags('/postagens') 
 @ApiBearerAuth()
 export class PostagemController {
   constructor(private readonly postagemService: PostagemService) { }
